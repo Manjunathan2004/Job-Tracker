@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Job Track | Job & Internship Tracker</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+
+        /* ==============================
+           GLOBAL
+        ============================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #080611;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+
+        /* ==============================
+           HEADER
+        ============================== */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(8, 6, 17, 0.95);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid #27213d;
+        }
+
+        nav {
+            min-height: 75px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            color: #ffffff;
+            font-size: 27px;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: #d4af37;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        nav ul a {
+            color: #bcb6ce;
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav ul a:hover {
+            color: #d4af37;
+        }
+
+        .nav-button {
+            padding: 10px 20px;
+
+            color: #100c1c !important;
+
+            background: linear-gradient(
+                135deg,
+                #f5d76e,
+                #d4af37
+            );
+
+            border-radius: 25px;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.2);
+
+            transition: 0.3s;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.35);
+        }
+
+
+        /* ==============================
+           HERO
+        ============================== */
+
+        .hero {
+            padding: 95px 0;
+
+            background:
+                radial-gradient(
+                    circle at 10% 20%,
+                    rgba(91, 45, 160, 0.30),
+                    transparent 28%
+                ),
+
+                radial-gradient(
+                    circle at 90% 30%,
+                    rgba(212, 175, 55, 0.12),
+                    transparent 25%
+                ),
+
+                #080611;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 65px;
+        }
+
+        .badge {
+            display: inline-block;
+
+            padding: 7px 15px;
+            margin-bottom: 18px;
+
+            color: #d4af37;
+            background: #211b31;
+
+            border: 1px solid #44385d;
+
+            border-radius: 30px;
+
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            line-height: 1.12;
+            letter-spacing: -2px;
+
+            margin-bottom: 22px;
+        }
+
+        .hero h1 .purple {
+            color: #a875ff;
+        }
+
+        .hero h1 .gold {
+            color: #d4af37;
+        }
+
+        .hero-text {
+            max-width: 580px;
+
+            color: #aaa3ba;
+
+            font-size: 16px;
+
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-block;
+
+            padding: 13px 25px;
+
+            color: #100c1c;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f5d76e,
+                    #d4af37
+                );
+
+            border-radius: 25px;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            box-shadow:
+                0 8px 25px rgba(212, 175, 55, 0.2);
+
+            transition: 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+
+            padding: 12px 25px;
+
+            color: #d8d1e8;
+
+            background: transparent;
+
+            border: 1px solid #403653;
+
+            border-radius: 25px;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+        .btn-secondary:hover {
+            color: #d4af37;
+            border-color: #d4af37;
+        }
+
+
+        /* ==============================
+           MY APPLICATIONS BOX
+           SHORT & COMPACT
+        ============================== */
+
+        .dashboard {
+            width: 100%;
+            max-width: 340px;
+
+            padding: 20px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #171225,
+                    #0f0c19
+                );
+
+            border: 1px solid #34294c;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 25px 60px rgba(0, 0, 0, 0.45),
+                0 0 35px rgba(112, 65, 190, 0.10);
+
+            justify-self: end;
+        }
+
+        .dashboard-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            margin-bottom: 15px;
+        }
+
+        .dashboard-top h3 {
+            color: #ffffff;
+            font-size: 16px;
+        }
+
+        .active-status {
+            padding: 4px 9px;
+
+            color: #65e6b2;
+            background: #102b25;
+
+            border: 1px solid #194d40;
+
+            border-radius: 20px;
+
+            font-size: 9px;
+            font-weight: 700;
+        }
+
+        .job-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 12px;
+            margin-bottom: 9px;
+
+            background: #12101d;
+
+            border: 1px solid #29233a;
+            border-radius: 10px;
+
+            transition: 0.3s;
+        }
+
+        .job-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .job-card:hover {
+            border-color: #6b4aa1;
+            transform: translateX(3px);
+        }
+
+        .job-info strong {
+            display: block;
+
+            color: #f2eff8;
+
+            font-size: 11px;
+        }
+
+        .job-info small {
+            display: block;
+
+            color: #817990;
+
+            font-size: 9px;
+        }
+
+        .status {
+            padding: 4px 8px;
+
+            border-radius: 15px;
+
+            font-size: 8px;
+            font-weight: 700;
+        }
+
+        .applied {
+            color: #75aaff;
+            background: #111e38;
+        }
+
+        .interview {
+            color: #e9c65b;
+            background: #342b12;
+        }
+
+        .offer {
+            color: #63dfaa;
+            background: #102d24;
+        }
+
+
+        /* ==============================
+           STATS
+        ============================== */
+
+        .stats {
+            padding: 55px 0;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #171025,
+                    #25133d,
+                    #171025
+                );
+
+            border-top: 1px solid #302442;
+            border-bottom: 1px solid #302442;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .stat {
+            padding: 22px;
+
+            text-align: center;
+
+            background: rgba(255, 255, 255, 0.035);
+
+            border: 1px solid #3a2d50;
+            border-radius: 15px;
+        }
+
+        .stat h2 {
+            color: #d4af37;
+
+            font-size: 34px;
+            font-weight: 800;
+        }
+
+        .stat p {
+            color: #aaa2b9;
+            font-size: 12px;
+        }
+
+
+        /* ==============================
+           SECTION
+        ============================== */
+
+        .section {
+            padding: 90px 0;
+        }
+
+        .section-title {
+            max-width: 650px;
+
+            text-align: center;
+
+            margin: 0 auto 50px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            line-height: 1.2;
+
+            margin-bottom: 13px;
+        }
+
+        .section-title p {
+            color: #9690a5;
+            font-size: 14px;
+        }
+
+
+        /* ==============================
+           FEATURES
+        ============================== */
+
+        .features {
+            background: #0b0913;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .feature {
+            position: relative;
+            overflow: hidden;
+
+            padding: 30px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #171225,
+                    #0f0c18
+                );
+
+            border: 1px solid #2c243d;
+            border-radius: 18px;
+
+            transition: 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-8px);
+
+            border-color: #62459a;
+
+            box-shadow:
+                0 20px 45px rgba(0, 0, 0, 0.35);
+        }
+
+        .feature::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 4px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #8b5cf6,
+                    #d4af37
+                );
+        }
+
+        .feature:nth-child(2)::before {
+            background:
+                linear-gradient(
+                    90deg,
+                    #d4af37,
+                    #f97316
+                );
+        }
+
+        .feature:nth-child(3)::before {
+            background:
+                linear-gradient(
+                    90deg,
+                    #14b8a6,
+                    #6366f1
+                );
+        }
+
+        .feature-icon {
+            width: 55px;
+            height: 55px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 18px;
+
+            background: #271c3d;
+
+            border: 1px solid #493768;
+            border-radius: 14px;
+
+            font-size: 25px;
+        }
+
+        .feature:nth-child(2) .feature-icon {
+            background: #352a13;
+            border-color: #594717;
+        }
+
+        .feature:nth-child(3) .feature-icon {
+            background: #102d2a;
+            border-color: #1c5149;
+        }
+
+        .feature h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            color: #9690a5;
+            font-size: 13px;
+            margin-bottom: 18px;
+        }
+
+        .feature-link {
+            color: #d4af37;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+
+        /* ==============================
+           HOW IT WORKS
+        ============================== */
+
+        .how-it-works {
+            background:
+                radial-gradient(
+                    circle at center,
+                    #19122b,
+                    #080611
+                );
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .step {
+            padding: 30px;
+
+            text-align: center;
+
+            background: #12101c;
+
+            border: 1px solid #2d263d;
+            border-radius: 17px;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin: 0 auto 18px;
+
+            color: #151019;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f5d76e,
+                    #d4af37
+                );
+
+            border-radius: 50%;
+
+            font-size: 16px;
+            font-weight: 800;
+        }
+
+        .step h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            color: #91899f;
+            font-size: 13px;
+        }
+
+
+        /* ==============================
+           ABOUT
+        ============================== */
+
+        .about {
+            background: #0b0913;
+            text-align: center;
+        }
+
+
+        /* ==============================
+           CTA
+        ============================== */
+
+        .cta {
+            padding: 85px 20px;
+
+            text-align: center;
+
+            background:
+                radial-gradient(
+                    circle at 20% 50%,
+                    rgba(123, 58, 237, 0.4),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 80% 50%,
+                    rgba(212, 175, 55, 0.2),
+                    transparent 30%
+                ),
+
+                #171025;
+
+            border-top: 1px solid #332746;
+            border-bottom: 1px solid #332746;
+        }
+
+        .cta h2 {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .cta p {
+            max-width: 600px;
+
+            margin: 0 auto 28px;
+
+            color: #aaa2b9;
+
+            font-size: 14px;
+        }
+
+        .cta a {
+            display: inline-block;
+
+            padding: 13px 27px;
+
+            color: #120e18;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f5d76e,
+                    #d4af37
+                );
+
+            border-radius: 25px;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            transition: 0.3s;
+        }
+
+        .cta a:hover {
+            transform: translateY(-3px);
+        }
+
+
+        /* ==============================
+           FOOTER
+        ============================== */
+
+        footer {
+            padding: 28px 0;
+
+            background: #05040a;
+
+            color: #746e80;
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer-logo {
+            color: white;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .footer-logo span {
+            color: #d4af37;
+        }
+
+        footer p {
+            font-size: 11px;
+        }
+
+
+        /* ==============================
+           RESPONSIVE
+        ============================== */
+
+        @media (max-width: 850px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .hero {
+                padding: 70px 0;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero-text {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .dashboard {
+                justify-self: center;
+                max-width: 330px;
+            }
+
+            .stats-grid,
+            .feature-grid,
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .feature {
+                text-align: center;
+            }
+
+            .feature-icon {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- ==============================
+         HEADER
+    ============================== -->
+
+    <header>
+
+        <div class="container">
+
+            <nav>
+
+                <a href="#home" class="logo">
+                    Job<span>Track</span>
+                </a>
+
+                <ul>
+
+                    <li>
+                        <a href="#home">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#features">Features</a>
+                    </li>
+
+                    <li>
+                        <a href="#how-it-works">How It Works</a>
+                    </li>
+
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+
+                </ul>
+
+                <a href="#start" class="nav-button">
+                    Get Started
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+
+        <!-- ==============================
+             HERO
+        ============================== -->
+
+        <section class="hero" id="home">
+
+            <div class="container">
+
+                <div class="hero-content">
+
+
+                    <div>
+
+                        <span class="badge">
+                            ✦ SMARTER CAREER MANAGEMENT
+                        </span>
+
+                        <h1>
+                            Your Career Journey,
+                            <span class="purple">Organized</span>
+                            <span class="gold">.</span>
+                        </h1>
+
+                        <p class="hero-text">
+                            Track your job applications, internships,
+                            interviews and opportunities in one elegant
+                            and powerful workspace.
+                        </p>
+
+                        <div class="hero-buttons">
+
+                            <a href="#features" class="btn-primary">
+                                Start Tracking →
+                            </a>
+
+                            <a href="#how-it-works" class="btn-secondary">
+                                See How It Works
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SHORT APPLICATION BOX -->
+
+                    <div class="dashboard">
+
+                        <div class="dashboard-top">
+
+                            <h3>
+                                My Applications
+                            </h3>
+
+                            <span class="active-status">
+                                ● Active
+                            </span>
+
+                        </div>
+
+
+                        <div class="job-card">
+
+                            <div class="job-info">
+
+                                <strong>
+                                    Frontend Developer
+                                </strong>
+
+                                <small>
+                                    Tech Solutions
+                                </small>
+
+                            </div>
+
+                            <span class="status interview">
+                                Interview
+                            </span>
+
+                        </div>
+
+
+                        <div class="job-card">
+
+                            <div class="job-info">
+
+                                <strong>
+                                    Software Intern
+                                </strong>
+
+                                <small>
+                                    Innovate Labs
+                                </small>
+
+                            </div>
+
+                            <span class="status applied">
+                                Applied
+                            </span>
+
+                        </div>
+
+
+                        <div class="job-card">
+
+                            <div class="job-info">
+
+                                <strong>
+                                    Web Developer
+                                </strong>
+
+                                <small>
+                                    Creative Digital
+                                </small>
+
+                            </div>
+
+                            <span class="status offer">
+                                Offer
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             STATISTICS
+        ============================== -->
+
+        <section class="stats">
+
+            <div class="container">
+
+                <div class="stats-grid">
+
+                    <div class="stat">
+
+                        <h2>250+</h2>
+
+                        <p>
+                            Applications Tracked
+                        </p>
+
+                    </div>
+
+                    <div class="stat">
+
+                        <h2>100+</h2>
+
+                        <p>
+                            Opportunities Found
+                        </p>
+
+                    </div>
+
+                    <div class="stat">
+
+                        <h2>50+</h2>
+
+                        <p>
+                            Successful Placements
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             FEATURES
+        ============================== -->
+
+        <section class="section features" id="features">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <span class="badge">
+                        ✦ POWERFUL FEATURES
+                    </span>
+
+                    <h2>
+                        Everything You Need
+                    </h2>
+
+                    <p>
+                        Powerful tools to organize and manage
+                        your complete career journey.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-grid">
+
+
+                    <article class="feature">
+
+                        <div class="feature-icon">
+                            📋
+                        </div>
+
+                        <h3>
+                            Track Applications
+                        </h3>
+
+                        <p>
+                            Keep all your job and internship
+                            applications organized in one place.
+                        </p>
+
+                        <a href="#start" class="feature-link">
+                            Track Now →
+                        </a>
+
+                    </article>
+
+
+                    <article class="feature">
+
+                        <div class="feature-icon">
+                            🔍
+                        </div>
+
+                        <h3>
+                            Search Opportunities
+                        </h3>
+
+                        <p>
+                            Discover new job and internship
+                            opportunities that match your goals.
+                        </p>
+
+                        <a href="#start" class="feature-link">
+                            Find Opportunities →
+                        </a>
+
+                    </article>
+
+
+                    <article class="feature">
+
+                        <div class="feature-icon">
+                            📊
+                        </div>
+
+                        <h3>
+                            Monitor Status
+                        </h3>
+
+                        <p>
+                            Monitor your applications from
+                            applied to interview and offer.
+                        </p>
+
+                        <a href="#start" class="feature-link">
+                            View Progress →
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             HOW IT WORKS
+        ============================== -->
+
+        <section class="section how-it-works" id="how-it-works">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <span class="badge">
+                        ✦ SIMPLE PROCESS
+                    </span>
+
+                    <h2>
+                        How Job Track Works
+                    </h2>
+
+                    <p>
+                        Manage your career journey in three
+                        simple steps.
+                    </p>
+
+                </div>
+
+
+                <div class="steps">
+
+
+                    <article class="step">
+
+                        <div class="step-number">
+                            1
+                        </div>
+
+                        <h3>
+                            Add Applications
+                        </h3>
+
+                        <p>
+                            Add the jobs and internships
+                            you are interested in.
+                        </p>
+
+                    </article>
+
+
+                    <article class="step">
+
+                        <div class="step-number">
+                            2
+                        </div>
+
+                        <h3>
+                            Update Status
+                        </h3>
+
+                        <p>
+                            Update applications as you
+                            move through the hiring process.
+                        </p>
+
+                    </article>
+
+
+                    <article class="step">
+
+                        <div class="step-number">
+                            3
+                        </div>
+
+                        <h3>
+                            Reach Your Goal
+                        </h3>
+
+                        <p>
+                            Stay organized and move closer
+                            to your dream career.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             ABOUT
+        ============================== -->
+
+        <section class="section about" id="about">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <span class="badge">
+                        ✦ ABOUT JOB TRACK
+                    </span>
+
+                    <h2>
+                        Built for Your Career Journey
+                    </h2>
+
+                    <p>
+                        Job Track helps students, graduates and
+                        job seekers manage every opportunity from
+                        one simple and elegant platform.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             CTA
+        ============================== -->
+
+        <section class="cta" id="start">
+
+            <h2>
+                Ready to Take Control?
+            </h2>
+
+            <p>
+                Start organizing your job and internship search
+                and take the next step toward your dream career.
+            </p>
+
+            <a href="#home">
+                Start Your Journey →
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==============================
+         FOOTER
+    ============================== -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-content">
+
+                <div class="footer-logo">
+                    Job<span>Track</span>
+                </div>
+
+                <p>
+                    © 2026 Job Track. All rights reserved.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>
+
