@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>InternHub - Internship Portal</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+
+            <div class="logo">
+                Intern<span>Hub</span>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#internships">Internships</a></li>
+                <li><a href="#companies">Companies</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+
+            <div class="nav-buttons">
+                <button class="login-btn">Login</button>
+                <button class="register-btn">Register</button>
+            </div>
+
+        </nav>
+    </header>
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <h1>
+                Find Your Perfect
+                <span>Internship</span>
+            </h1>
+
+            <p>
+                Discover internship opportunities from top companies
+                and start building your career today.
+            </p>
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search internship, skills or company..."
+                >
+
+                <select id="locationFilter">
+                    <option value="">All Locations</option>
+                    <option value="Chennai">Chennai</option>
+                    <option value="Bangalore">Bangalore</option>
+                    <option value="Hyderabad">Hyderabad</option>
+                    <option value="Remote">Remote</option>
+                </select>
+
+                <button onclick="searchInternships()">
+                    Search
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Categories -->
+    <section class="categories">
+
+        <h2>Explore Internship Categories</h2>
+
+        <div class="category-container">
+
+            <div class="category-card">
+                <div class="category-icon">💻</div>
+                <h3>Web Development</h3>
+                <p>120+ Internships</p>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">📊</div>
+                <h3>Data Science</h3>
+                <p>85+ Internships</p>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">🤖</div>
+                <h3>Artificial Intelligence</h3>
+                <p>70+ Internships</p>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">☁️</div>
+                <h3>Cloud Computing</h3>
+                <p>60+ Internships</p>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">📱</div>
+                <h3>Mobile Development</h3>
+                <p>55+ Internships</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Internship Section -->
+    <section class="internships" id="internships">
+        <div class="section-heading">
+            <div>
+                <h2>Internship Tracker</h2>
+                <p>Add, search, edit and delete internships. Your data is saved automatically on this computer.</p>
+            </div>
+            <button class="view-btn" id="refreshBtn" type="button">Refresh</button>
+        </div>
+
+        <form id="internshipForm" class="internship-form">
+            <h3 id="formTitle">Add an Internship</h3>
+            <div class="form-grid">
+                <label>Company name
+                    <input id="company" name="company" type="text" placeholder="e.g. Infosys" required maxlength="100">
+                </label>
+                <label>Internship role
+                    <input id="role" name="role" type="text" placeholder="e.g. Web Developer Intern" required maxlength="100">
+                </label>
+                <label>Location
+                    <input id="applicationLocation" name="location" type="text" placeholder="e.g. Chennai / Remote" required maxlength="100">
+                </label>
+                <label>Status
+                    <select id="status" name="status" required>
+                        <option value="Applied">Applied</option>
+                        <option value="Interview">Interview</option>
+                        <option value="Offer">Offer</option>
+                        <option value="Rejected">Rejected</option>
+                    </select>
+                </label>
+                <label>Application date
+                    <input id="applicationDate" name="applicationDate" type="date" required>
+                </label>
+            </div>
+            <div class="form-actions">
+                <button class="primary-btn" id="submitBtn" type="submit">Add Internship</button>
+                <button class="secondary-btn" id="cancelEditBtn" type="button" hidden>Cancel edit</button>
+            </div>
+            <p id="formMessage" class="form-message" role="status"></p>
+        </form>
+
+        <div class="tracker-toolbar">
+            <input type="search" id="searchInput" placeholder="Search company, role, location or status..." aria-label="Search internships">
+            <span id="internshipCount">Loading internships...</span>
+        </div>
+        <div class="internship-container" id="internshipList" aria-live="polite">
+            <p>Loading internships...</p>
+        </div>
+    </section>
+
+
+    <!-- Companies -->
+    <section class="companies" id="companies">
+
+        <h2>Top Companies Hiring Interns</h2>
+
+        <div class="company-container">
+
+            <div class="company-box">
+                <strong>Google</strong>
+                <p>Technology</p>
+            </div>
+
+            <div class="company-box">
+                <strong>Microsoft</strong>
+                <p>Software</p>
+            </div>
+
+            <div class="company-box">
+                <strong>Amazon</strong>
+                <p>E-Commerce</p>
+            </div>
+
+            <div class="company-box">
+                <strong>TCS</strong>
+                <p>IT Services</p>
+            </div>
+
+            <div class="company-box">
+                <strong>Infosys</strong>
+                <p>Technology</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- About -->
+    <section class="about" id="about">
+
+        <div class="about-content">
+
+            <h2>Why Choose InternHub?</h2>
+
+            <p>
+                InternHub connects students and fresh graduates with
+                companies offering valuable internship opportunities.
+                Build your skills, gain practical experience and
+                launch your career.
+            </p>
+
+            <div class="features">
+
+                <div>
+                    <span>✓</span>
+                    Verified Companies
+                </div>
+
+                <div>
+                    <span>✓</span>
+                    Latest Opportunities
+                </div>
+
+                <div>
+                    <span>✓</span>
+                    Easy Application
+                </div>
+
+                <div>
+                    <span>✓</span>
+                    Career Growth
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="footer-content">
+
+            <div>
+                <h2>Intern<span>Hub</span></h2>
+                <p>
+                    Your gateway to amazing internship opportunities.
+                </p>
+            </div>
+
+            <div>
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#internships">Internships</a>
+                <a href="#companies">Companies</a>
+            </div>
+
+            <div>
+                <h3>Contact</h3>
+                <p>📧 support@internhub.com</p>
+                <p>📞 +91 98765 43210</p>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 InternHub. All Rights Reserved.
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
